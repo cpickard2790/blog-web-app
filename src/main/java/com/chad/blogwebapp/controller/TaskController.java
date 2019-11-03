@@ -29,9 +29,9 @@ public class TaskController {
     public void addTask(@RequestBody Task task) {
 
         Authentication a = SecurityContextHolder.getContext().getAuthentication();
-        User user3 = userRepository.findByUsername(a.getName());
+        User user = userRepository.findByUsername(a.getName());
 
-        task.setUser(user3);
+        task.setUser(user);
         this.repository.save(task);
     }
 }

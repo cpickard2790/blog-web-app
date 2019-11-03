@@ -1,8 +1,10 @@
 package com.chad.blogwebapp;
 
+import com.chad.blogwebapp.model.Picture;
 import com.chad.blogwebapp.model.Post;
 import com.chad.blogwebapp.model.Task;
 import com.chad.blogwebapp.model.User;
+import com.chad.blogwebapp.repository.PictureRepository;
 import com.chad.blogwebapp.repository.PostRepository;
 import com.chad.blogwebapp.repository.TaskRepository;
 import com.chad.blogwebapp.repository.UserRepository;
@@ -28,6 +30,9 @@ public class BlogWebAppApplication {
 	@Autowired
 	private TaskRepository trepository;
 
+	@Autowired
+	private PictureRepository pictureRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(BlogWebAppApplication.class, args);
 	}
@@ -45,6 +50,8 @@ public class BlogWebAppApplication {
 			Post post4 = new Post("Fourth Post", "And this would be my fourth post", date, "https://family-blog-bucket.s3.us-east-2.amazonaws.com/164320142-geometry-wallpapers.jpg", user2);
 			Task task1 = new Task("Motocross Race", "Beaver Creek MX", "2019-11-12", user1);
 			Task task2 = new Task("Soccer Game", "YMCA Fields", "2019-11-18", user2);
+			Picture pic1 = new Picture("https://family-blog-bucket.s3.us-east-2.amazonaws.com/c%23.jpg", user1);
+			Picture pic2 = new Picture("https://family-blog-bucket.s3.us-east-2.amazonaws.com/164320142-geometry-wallpapers.jpg", user2);
 			urepository.save(user1);
 			urepository.save(user2);
 			prepository.save(post1);
@@ -53,6 +60,8 @@ public class BlogWebAppApplication {
 			prepository.save(post4);
 			trepository.save(task1);
 			trepository.save(task2);
+			pictureRepository.save(pic1);
+			pictureRepository.save(pic2);
 		};
 	}
 

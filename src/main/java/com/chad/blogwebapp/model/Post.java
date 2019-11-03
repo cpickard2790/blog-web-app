@@ -15,7 +15,7 @@ public class Post {
     private String title;
 
     @Column(columnDefinition = "TEXT")
-    private String body;
+    private String content;
 
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss a", timezone = "America/New_York")
     private Date createdAt;
@@ -28,9 +28,9 @@ public class Post {
 
     public Post() {}
 
-    public Post(String title, String body, Date createdAt, String pictureUrl, User user) {
+    public Post(String title, String content, Date createdAt, String pictureUrl, User user) {
         this.title = title;
-        this.body = body;
+        this.content = content;
         this.createdAt = createdAt;
         this.pictureUrl = pictureUrl;
         this.user = user;
@@ -62,12 +62,12 @@ public class Post {
         this.title = title;
     }
 
-    public String getBody() {
-        return body;
+    public String getContent() {
+        return content;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void seContent(String content) {
+        this.content = content;
     }
 
     public Date getCreatedAt() {
