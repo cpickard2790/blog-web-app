@@ -20,7 +20,7 @@ public class Post {
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss a", timezone = "America/New_York")
     private Date createdAt;
 
-    private String pictureUrl;
+    private String url;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user")
@@ -28,23 +28,26 @@ public class Post {
 
     public Post() {}
 
-    public Post(String title, String content, Date createdAt, String pictureUrl, User user) {
+    public Post(String title, String content, Date createdAt, String url, User user) {
         this.title = title;
         this.content = content;
         this.createdAt = createdAt;
-        this.pictureUrl = pictureUrl;
+        this.url = url;
         this.user = user;
     }
 
-
-
-    public String getPictureUrl() {
-        return pictureUrl;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
+    public String getUrl() {
+        return url;
     }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 
     public Long getId() {
         return id;

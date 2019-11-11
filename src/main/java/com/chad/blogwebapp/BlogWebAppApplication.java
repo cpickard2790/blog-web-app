@@ -41,9 +41,10 @@ public class BlogWebAppApplication {
 	CommandLineRunner runner() {
 		return args -> {
 
-			User user1 = new User("cpickard2790", BCrypt.hashpw("password", BCrypt.gensalt()), "admin");
-			User user2 = new User("bobbylee19", BCrypt.hashpw("pass1234", BCrypt.gensalt()), "user");
+			User user1 = new User("Chad", "Pickard", "cpickard2790@gmail.com", "cpickard2790", BCrypt.hashpw("password", BCrypt.gensalt()), "admin");
+			User user2 = new User("Bobby", "Lee", "blee@yahoo.com", "bobbylee19", BCrypt.hashpw("pass1234", BCrypt.gensalt()), "user");
 			Date date = new Date();
+			/*
 			Post post1 = new Post("First Post", "This is my very first post", date, "https://cdn.pixabay.com/photo/2019/09/19/07/26/extreme-4488462_960_720.jpg", user1);
 			Post post2 = new Post("Second Post", "This would be my seoncd post", date, "https://cdn.pixabay.com/photo/2015/03/26/10/01/dirt-bike-690770_960_720.jpg", user1);
 			Post post3 = new Post("Third Post", "And this would be my third post", date, "https://family-blog-bucket.s3.us-east-2.amazonaws.com/c%23.jpg",  user2);
@@ -52,8 +53,10 @@ public class BlogWebAppApplication {
 			Task task2 = new Task("Soccer Game", "YMCA Fields", "2019-11-18", user2);
 			Picture pic1 = new Picture("https://family-blog-bucket.s3.us-east-2.amazonaws.com/c%23.jpg", user1);
 			Picture pic2 = new Picture("https://family-blog-bucket.s3.us-east-2.amazonaws.com/164320142-geometry-wallpapers.jpg", user2);
+			*/
 			urepository.save(user1);
 			urepository.save(user2);
+			/*
 			prepository.save(post1);
 			prepository.save(post2);
 			prepository.save(post3);
@@ -62,7 +65,9 @@ public class BlogWebAppApplication {
 			trepository.save(task2);
 			pictureRepository.save(pic1);
 			pictureRepository.save(pic2);
+			*/
 		};
 	}
+
 
 }

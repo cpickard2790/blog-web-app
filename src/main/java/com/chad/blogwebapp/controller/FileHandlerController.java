@@ -33,8 +33,8 @@ public class FileHandlerController {
         this.amazonS3ClientService.uploadFileToS3Bucket(file, true);
 
         Map<String, String> response = new HashMap<>();
-        response.put("message", "file [" + file.getOriginalFilename() + "] uploading request submitted successfully." +
-                "The link to the file is: https://family-blog-bucket.s3.us-east-2.amazonaws.com/" + file.getOriginalFilename());
+
+        response.put("message", "https://family-blog-bucket.s3.us-east-2.amazonaws.com/" + file.getOriginalFilename());
 
         Picture pic = new Picture("https://family-blog-bucket.s3.us-east-2.amazonaws.com/" + file.getOriginalFilename());
         Authentication a = SecurityContextHolder.getContext().getAuthentication();

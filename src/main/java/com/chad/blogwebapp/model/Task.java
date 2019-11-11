@@ -1,12 +1,15 @@
 package com.chad.blogwebapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String event;
@@ -66,4 +69,6 @@ public class Task {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 }

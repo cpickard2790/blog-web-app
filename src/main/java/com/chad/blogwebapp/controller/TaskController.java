@@ -9,6 +9,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 public class TaskController {
 
@@ -22,6 +24,29 @@ public class TaskController {
     @GetMapping("/tasks")
     public Iterable<Task> getTask() {
         return this.repository.findAll();
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/tasks/{id}")
+    Optional<Task> one(@PathVariable Long id) {
+        return this.repository.findById(id);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PutMapping("/tasks/{id}")
+    Task updateTask(@RequestBody Task updateTask, @PathVariable Long id) {
+        return repository.findById(id)
+                .map(task -> {
+                    task.setDate(updateTask.getDate());
+                    task.setEvent(updateTask.getEvent());
+                    task.setLocation(updateTask.getLocation());
+                    return repository.save(task);
+                })
+                .orElseGet(() -> {
+                    updateTask.setId(id);
+                    return repository.save(updateTask);
+                });
+
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
